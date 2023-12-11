@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registro</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Login.css">
+</head>
+
+<body>
+    <header id="position">
+        <a href="index.html"><button class="btn btn-primary">Modo invitado</button></a>
+        <!-- place navbar here -->
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 offset-md-0">
+                    <h2 class="text-center">Iniciar Sesión</h2>
+                    <form id="loginForm" onsubmit="return validateForm()">
+                        <div class="form-group">
+                            <label for="username">Usuario (máximo 12 caracteres)</label>
+                            <input type="text" class="form-control" id="username" maxlength="12" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña (mínimo 8, máximo 10 caracteres)</label>
+                            <input type="password" class="form-control" id="password" minlength="8" maxlength="10" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</button>
+                            <a href="Formulario.html"><button type="submit" class="btn btn-secondary">Iniciar Sesión</button></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de Registro -->
+                    <form id="registerForm" onsubmit="return registerUser()">
+                        <div class="mb-3">
+                            <label for="registerUsername" class="form-label">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="registerUsername" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+    <script>
+    let loginAttempts = 0;
+    function validateForm() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const email = document.getElementById("email").value;
+        if (username.length > 12 || password.length < 8 || password.length > 10 || !validateEmail(email)) {
+            alert("Por favor, revise los campos ingresados.");
+            return false;
+        }
+        loginAttempts++;
+        if (loginAttempts >= 3) {
+            alert("Número máximo de intentos alcanzado. Saliendo.");
+            logout();
+            return false; 
+        }
+        if (username && password && email) {
+            // Solo redirige si todos los campos están completos.
+            window.location.href = "index.html";
+            return false; 
+        } else {
+            alert("Por favor, rellene todos los campos del formulario.");
+            return false; 
+        }
+    }
+    function validateEmail(email) {
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0.9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailPattern.test(email);
+    }
+    function logout() {
+        alert("Sesión cerrada.");
+    }
+    function registerUser() {
+        const registerUsername = document.getElementById("registerUsername").value;
+        const registerPassword = document.getElementById("registerPassword").value;
+        if (registerUsername && registerPassword) {
+            console.log(`Usuario registrado: ${registerUsername}`);
+            document.getElementById("registerUsername").value = "";
+            document.getElementById("registerPassword").value = "";
+            $('#registerModal').modal('hide');
+            return false;
+        } else {
+            alert("Por favor, rellene todos los campos del formulario de registro.");
+            return false;
+        }
+    }
+    </script>
+</body>
+</html>

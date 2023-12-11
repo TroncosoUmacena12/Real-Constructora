@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Registro Compra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main>
+        <div class="container mt-5">
+            <h2 class="text-center mb-4">Registro de Productos e Items</h2>
+            <form id="productForm" onsubmit="return validateForm()">
+                <div class="mb-3">
+                    <label for="productName" class="form-label">Nombre del Producto</label>
+                    <input type="text" class="form-control" id="productName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="productPrice" class="form-label">Precio del Producto</label>
+                    <input type="number" class="form-control" id="productPrice" min="0" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </form>
+            <h2 class="text-center mt-5">Lista de Contenido Registrado</h2>
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre del Producto</th>
+                        <th scope="col">Precio</th>
+                    </tr>
+                </thead>
+                <tbody id="contentList">
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.js">
+    </script>
+    <script>
+        function validateForm() {
+            const productName = document.getElementById("productName").value;
+            const productPrice = document.getElementById("productPrice").value;
+
+            if (!productName || !productPrice) {
+                alert("Por favor, complete todos los campos.");
+                return false;
+            }
+            if (isNaN(productPrice)) {
+                alert("Ingrese un valor numérico válido para el precio.");
+                return false;
+            }
+            addToTable(productName, productPrice);
+            document.getElementById("productName").value = "";
+            document.getElementById("productPrice").value = "";
+            alert("Registro exitoso.");
+            return false;
+        }
+
+        function addToTable(name, price) {
+            const tableBody = document.getElementById("contentList");
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${name}</td>
+                <td>${price}</td>
+            `;
+            tableBody.appendChild(row);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casas</title>
+    <link rel="stylesheet" href="1 al 6.css">
+</head>
+<body class="light-mode">
+    <main>
+        <nav>
+            <button id="menuBtn">Ocultar</button>
+            <div id="menu">
+                <ul id="menulis">
+                    <li><a href="#"><button class="colorbnt">Sugerencias</button></a></li>
+                    <li><a href="Descuentos.html"><button class="colorbnt">Descuentos</button></a></li>
+                    <li><button id="cambiarColorButton" class="colorbnt">Cambiar Modo</button></li>
+                    <li><a href="Pagina.html"><button class="colorbnt">Volver</button></a></li>
+                    <li><a href="Reservar.html"><button class="colorbnt">Reservar</button></a></li>
+                </ul>
+            </div>
+            <div id="cart">
+                <button id="toggle-cart">Ver Carrito</button>
+                <div id="cart-content">
+                    <ul id="cart-items"></ul>
+                </div>
+            </div>
+        </nav>
+    </main>
+    <section class="section">
+        <div class="card">
+            <button id="cambiarColorButton" class="button-opcion">Detalles</button>
+            <div class="container">
+                <img src="Imagenes/Casa de Lujo.jpg" class="image" alt="Vista de la casa">
+                <div class="middle" id="product">
+                    <div class="text">La casa cuenta con varias aereas recreativas ideal para ti</div>
+                    <button class="add-to-cart" data-name="Casa de Lujo" data-price="2,500,000" data-image="Imagenes/Casa de Lujo.jpg" id="button-carrito">Agregar al Carrito</button>
+                </div>
+            </div>
+            <h2>Casa de Lujo</h2>
+            <p>Impresionante casa de lujo con amplias habitaciones, piscina privada y hermosos jardines. Ideal para vivir con comodidad y estilo.</p>
+            <p class="precio">Precio: $2,500,000</p>
+            <a href="RegistroCompra.html"><button id="button-compra">Adquirir</button></a>
+        </div>
+        <div class="card">
+            <button id="cambiarColorButton" class="button-opcion">Ver más</button>
+            <div class="container">
+                <img src="Imagenes/Casa Residencial Moderna.jpg" class="image" alt="Vista de la casa">
+                <div class="middle" id="product">
+                    <div class="text">Elegante casa residencial con un diseño moderno y espacios luminosos. Dispone de todas las comodidades para una vida cómoda y lujosa.</div>
+                    <button class="add-to-cart" data-name="Casa Residencial Moderna" data-price="1,800,000" data-image="Imagenes/Casa Residencial Moderna.jpg" id="button-carrito">Agregar al Carrito</button>
+                </div>
+            </div>
+            <h2>Casa Residencial Moderna</h2>
+            <p>Elegante casa residencial con un diseño moderno y espacios luminosos. Dispone de todas las comodidades para una vida cómoda y lujosa.</p>
+            <p class="precio">Precio: $1,800,000</p>
+            <a href="RegistroCompra.html"><button id="button-compra">Adquirir</button></a>
+        </div>
+        <div class="card">
+            <button id="cambiarColorButton" class="button-opcion">Más información</button>
+            <div class="container">
+                <img src="Imagenes/Casa en la Playa.jpg" class="image" alt="Vista de la casa">
+                <div class="middle" id="product">
+                    <div class="text">Casa junto a la playa con acceso directo a la arena. Vistas panorámicas al mar y una experiencia de vida costera inigualable.</div>
+                    <button class="add-to-cart" data-name="Casa en la Playa" data-price="3,200,000" data-image="Imagenes/Casa en la Playa.jpg" id="button-carrito">Agregar al Carrito</button>
+                </div>
+            </div>
+            <h2>Casa en la Playa</h2>
+            <p>Casa junto a la playa con acceso directo a la arena. Vistas panorámicas al mar y una experiencia de vida costera inigualable.</p>
+            <p class="precio">Precio: $3,200,000</p>
+            <a href="RegistroCompra.html"><button id="button-compra">Adquirir</button></a>
+        </div>
+        <div class="card">
+            <button id="cambiarColorButton" class="button-opcion">Explorar</button>
+            <div class="container">
+                <img src="Imagenes/Casa Moderna.jpg" class="image" alt="Vista de la casa">
+                <div class="middle" id="product">
+                    <div class="text">Casa de diseño moderno con espacios abiertos y comodidades de última generación. Perfecta para aquellos que buscan un estilo de vida contemporáneo.</div>
+                    <button class="add-to-cart" data-name="Casa Moderna" data-price="1,500,000" data-image="Imagenes/Casa Moderna.jpg" id="button-carrito">Agregar al Carrito</button>
+                </div>
+            </div>
+            <h2>Casa Moderna</h2>
+            <p>Casa de diseño moderno con espacios abiertos y comodidades de última generación. Perfecta para aquellos que buscan un estilo de vida contemporáneo.</p>
+            <p class="precio">Precio: $1,500,000</p>
+            <a href="RegistroCompra.html"><button id="button-compra">Adquirir</button></a>
+        </div>
+    </section>
+</body>
+
+    <script src="/js/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#cambiarColorButton").click(function () {
+                $("body").toggleClass("dark-mode"); 
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#menuBtn").click(function () {
+                $("#menu").toggle(); 
+            });
+            $("#menu a").click(function () {
+                var opcion = $(this).text();
+                if (opcion === "Sugerencias") {
+                } else if (opcion === "Volver") {
+                } else if (opcion === "Cambiar Modo") {
+                }
+            $("#menu").hide(); 
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+    
+            const cartItems = [];
+    
+            $(".add-to-cart").on("click", function () {
+                const productName = $(this).data("name");
+                const price = parseFloat($(this).data("price"));
+                const image = $(this).data("image");
+    
+                addToCart(productName, price, image);
+            });
+    
+            function addToCart(productName, price, image) {
+                cartItems.push({ name: productName, price: price, image: image });
+                updateCartDisplay();
+            }
+    
+            function updateCartDisplay() {
+                const cartItemsList = $("#cart-items");
+                cartItemsList.empty();
+    
+                cartItems.forEach((item, index) => {
+                    const listItem = $("<li>").text(`${item.name} - $${item.price.toFixed(2)}`);
+                    const imageElement = $(`<img src="${item.image}" alt="${item.name}" width="50" height="50">`);
+                    const removeButton = $("<button class='remove-from-cart'>Eliminar</button>")
+                    .css({
+                    fontSize: '16px',
+                    padding: '5px 10px',
+                    });
+                    removeButton.on("click", function () {
+                        removeFromCart(index);
+                    });
+                    listItem.append(imageElement);
+                    listItem.append(removeButton);
+                    cartItemsList.append(listItem);
+                });
+            }
+            function removeFromCart(index) {
+                cartItems.splice(index, 1);
+                updateCartDisplay();
+            }
+            $(document).ready(function () {
+                $("#toggle-cart").on("click", function () {
+                    $("#cart-content").toggle();
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

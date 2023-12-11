@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: yellowgreen;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: yellowgreen;
+    color: white;
+}
+
+#sec4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+#search-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.logoimg {
+    max-width: 100%; 
+    max-height: 50px; 
+}
+.logo {
+    text-align: center;
+}
+.llamanos {
+    text-align: center;
+    margin: 10px;
+}
+@media screen and (max-width: 768px) {
+    #sec4 {
+        flex-direction: column; 
+    }
+}
+
+#menu {
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap; 
+}
+
+li {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px #555;
+    background-color: #555;
+    margin-right: 5px;
+    margin-bottom: 5px; 
+}
+
+li a {
+    text-decoration: none;
+    color: yellowgreen;
+}
+
+li:hover {
+    background-color: #cd3535;
+}
+
+#figprin {
+    text-align: center;
+    position: relative;
+}
+
+#figc {
+    color: yellowgreen;
+    letter-spacing: 0.1em;
+}
+
+#imgprincipal {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+
+main {
+    background-color: white;
+    padding: 20px;
+}
+
+
+.color a {
+    text-decoration: none;
+    color: white;
+}
+
+
+#sec2 {
+    background-color: yellowgreen;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fig2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+}
+
+.img2 {
+    width: 100%;  
+    max-width: 100%; 
+    height: auto;  
+}
+
+.text-container {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    #sec2 {
+        flex-direction: column; 
+    }
+
+    .fig2, .text-container {
+        flex: auto; 
+    }
+
+    .img2 {
+        max-width: 100%; 
+        margin-bottom: 20px; 
+    }
+}
+
+
+#sec1 {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.caruselimg img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sec3 {
+    background-color: black;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.figc3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.img {
+    width: 100%;  
+    max-width: 100%; 
+    height: auto;  
+}
+
+.image-container {
+    flex: 1;
+
+}
+.contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+footer {
+    background-color: yellowgreen;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+    grid-auto-flow: column; 
+    gap: 10px; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    color: white;
+    padding: 10px;
+    transition: transform 0.3s;
+    border-radius: 5px;
+}
+
+#figprin:hover nav {
+    transform: scale(0.8); 
+}
+
+
+.redes-sociales {
+    background-color: white;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.redes-sociales a {
+    display: inline-block;
+    background-color: #333;
+    color: yellowgreen;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.redes-sociales a:hover {
+    background-color: #f31d1d;
+}
+
+.card {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#button-opcion {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+}
+
+#button-compra {
+    background-color: yellowgreen;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    z-index: 1;
+    
+}
+
+#button{
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+.price {
+    font-size: 20px; 
+    color: #d94a16; 
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.card:hover img {
+    transform: scale(0.95);
+}
+
+
+

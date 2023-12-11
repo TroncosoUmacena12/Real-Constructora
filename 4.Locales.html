@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locales</title>
+    <link rel="stylesheet" href="1 al 6.css">
+</head>
+<body class="light-mode">
+    <main>
+        <nav>
+            <button id="menuBtn">Ocultar</button>
+            <div id="menu">
+                <ul id="menulis">
+                    <li><a href="#"><button class="colorbnt">Sugerencias</button></a></li>
+                    <li><a href="Descuentos.html"><button class="colorbnt">Descuentos</button></a></li>
+                    <li><button id="cambiarColorButton" class="colorbnt">Cambiar Modo</button></li>
+                    <li><a href="Pagina.html"><button class="colorbnt">Volver</button></a></li>
+                    <li><a href="Reservar.html"><button class="colorbnt">Reservar</button></a></li>
+                </ul>
+            </div>
+            <div id="cart">
+                <button id="toggle-cart">Ver Carrito</button>
+                <div id="cart-content">
+                    <ul id="cart-items"></ul>
+                </div>
+            </div>
+        </nav>
+    </main>
+    <section class="section">
+        <div class="card">
+            <button id="cambiarColorButton" class="button-opcion">Detalles</button>
+            <div class="container">
+                <img src="Imagenes/Local Comercial en Alquiler.jpg" class="image" alt="Vista del local comercial">
+                <div class="middle" id="product">
+                    <div class="text">Amplio local comercial en una zona de alto tráfico. Ideal para establecer tu negocio y aprovechar una ubicación estratégica.</div>
+                    <button class="add-to-cart" data-name="Local Comercial en Alquiler" data-price="2500" data-image="Imagenes/Local Comercial en Alquiler.jpg" id="button-carrito">Agregar al Carrito</button>
+                </div>
+            </div>
+            <h2>Local Comercial en Alquiler</h2>
+            <p>Amplio local comercial en una zona de alto tráfico. Ideal para establecer tu negocio y aprovechar una ubicación estratégica.</p>
+            <p class="precio">Precio de Alquiler: $2,500/mes</p>
+            <a href="RegistroCompra.html"><button id="button-compra">Adquirir</button></a>
+        </div>
+        <div class="card">
+            <button id="cambiarColorButton" class="button-opcion">Ver más</button>
+            <div class="container">
+                <img src="Imagenes/Local en Centro Comercial.jpg" class="image" alt="Vista del local comercial">
+                <div class="middle" id="product">
+                    <div class="text">Local en un concurrido centro comercial. Perfecto para negocios minoristas y de servicios. Oportunidad única en una ubicación privilegiada.</div>
+                    <button class="add-to-cart" data-name="Local en Centro Comercial" data-price="3000" data-image="Imagenes/Local en Centro Comercial.jpg" id="button-carrito">Agregar al Carrito</button>
+                </div>
+            </div>
+            <h2>Local en Centro Comercial</h2>
+            <p>Local en un concurrido centro comercial. Perfecto para negocios minoristas y de servicios. Oportunidad única en una ubicación privilegiada.</p>
+            <p class="precio">Precio de Alquiler: $3,000/mes</p>
+            <a href="RegistroCompra.html"><button id="button-compra">Adquirir</button></a>
+        </div>
+        <div class="card">
+            <button id="cambiarColorButton" class="button-opcion">Más información</button>
+            <div class="container">
+                <img src="Imagenes/Local para Restaurante.jpg" class="image" alt="Vista del local comercial">
+                <div class="middle" id="product">
+                    <div class="text">Local listo para un restaurante con equipo de cocina y área de comedor. Una oportunidad emocionante para emprendedores gastronómicos.</div>
+                    <button class="add-to-cart" data-name="Local para Restaurante" data-price="250000" data-image="Imagenes/Local para Restaurante.jpg" id="button-carrito">Agregar al Carrito</button>
+                </div>
+            </div>
+            <h2>Local para Restaurante</h2>
+            <p>Local listo para un restaurante con equipo de cocina y área de comedor. Una oportunidad emocionante para emprendedores gastronómicos.</p>
+            <p class="precio">Precio de Venta: $250,000</p>
+            <a href="RegistroCompra.html"><button id="button-compra">Adquirir</button></a>
+        </div>
+        <div class="card">
+            <button id="cambiarColorButton" class="button-opcion">Explorar</button>
+            <div class="container">
+                <img src="Imagenes/Local Industrial.jpg" class="image" alt="Vista del local comercial">
+                <div class="middle" id="product">
+                    <div class="text">Local industrial con espacio de almacén y oficinas. Perfecto para operaciones de logística y fabricación.</div>
+                    <button class="add-to-cart" data-name="Local Industrial" data-price="500000" data-image="Imagenes/Local Industrial.jpg" id="button-carrito">Agregar al Carrito</button>
+                </div>
+            </div>
+            <h2>Local Industrial</h2>
+            <p>Local industrial con espacio de almacén y oficinas. Perfecto para operaciones de logística y fabricación.</p>
+            <p class="precio">Precio de Venta: $500,000</p>
+            <a href="RegistroCompra.html"><button id="button-compra">Adquirir</button></a>
+        </div>
+    </section>
+    <script src="/js/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#cambiarColorButton").click(function () {
+                $("body").toggleClass("dark-mode"); 
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#menuBtn").click(function () {
+                $("#menu").toggle(); 
+            });
+            $("#menu a").click(function () {
+                var opcion = $(this).text();
+                if (opcion === "Sugerencias") {
+                } else if (opcion === "Volver") {
+                } else if (opcion === "Cambiar Modo") {
+                }
+            $("#menu").hide(); 
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+    
+            const cartItems = [];
+    
+            $(".add-to-cart").on("click", function () {
+                const productName = $(this).data("name");
+                const price = parseFloat($(this).data("price"));
+                const image = $(this).data("image");
+    
+                addToCart(productName, price, image);
+            });
+    
+            function addToCart(productName, price, image) {
+                cartItems.push({ name: productName, price: price, image: image });
+                updateCartDisplay();
+            }
+    
+            function updateCartDisplay() {
+                const cartItemsList = $("#cart-items");
+                cartItemsList.empty();
+    
+                cartItems.forEach((item, index) => {
+                    const listItem = $("<li>").text(`${item.name} - $${item.price.toFixed(2)}`);
+                    const imageElement = $(`<img src="${item.image}" alt="${item.name}" width="50" height="50">`);
+                    const removeButton = $("<button class='remove-from-cart'>Eliminar</button>")
+                    .css({
+                    fontSize: '16px',
+                    padding: '5px 10px',
+                    });
+                    removeButton.on("click", function () {
+                        removeFromCart(index);
+                    });
+                    listItem.append(imageElement);
+                    listItem.append(removeButton);
+                    cartItemsList.append(listItem);
+                });
+            }
+            function removeFromCart(index) {
+                cartItems.splice(index, 1);
+                updateCartDisplay();
+            }
+            $(document).ready(function () {
+                $("#toggle-cart").on("click", function () {
+                    $("#cart-content").toggle();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

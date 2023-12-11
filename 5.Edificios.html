@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edificios</title>
+    <link rel="stylesheet" href="1 al 6.css">
+</head>
+<body class="light-mode">
+    <main>
+        <nav>
+            <button id="menuBtn">Ocultar</button>
+            <div id="menu">
+                <ul id="menulis">
+                    <li><a href="#"><button class="colorbnt">Sugerencias</button></a></li>
+                    <li><a href="Descuentos.html"><button class="colorbnt">Descuentos</button></a></li>
+                    <li><button id="cambiarColorButton" class="colorbnt">Cambiar Modo</button></li>
+                    <li><a href="Pagina.html"><button class="colorbnt">Volver</button></a></li>
+                    <li><a href="Reservar.html"><button class="colorbnt">Reservar</button></a></li>
+                </ul>
+            </div>
+            <div id="cart">
+                <button id="toggle-cart">Ver Carrito</button>
+                <div id="cart-content">
+                    <ul id="cart-items"></ul>
+                </div>
+            </div>
+        </nav>
+    </main>
+    <section class="section">
+        <div class="card">
+            <button id="cambiarColorButton" class="button-opcion">Detalles</button>
+            <div class="container">
+                <img src="Imagenes/Edificio de Oficinas.jpg" class="image" alt="Vista del edificio">
+                <div class="middle" id="product">
+                    <div class="text">Moderno edificio de oficinas con múltiples plantas y servicios de primera clase. Ubicación céntrica y excelente acceso a transportes públicos.</div>
+                    <button class="add-to-cart" data-name="Edificio de Oficinas" data-price="10000" data-image="Imagenes/Edificio de Oficinas.jpg" id="button-carrito">Agregar al Carrito</button>
+                </div>
+            </div>
+            <h2>Edificio de Oficinas</h2>
+            <p>Moderno edificio de oficinas con múltiples plantas y servicios de primera clase. Ubicación céntrica y excelente acceso a transportes públicos.</p>
+            <p class="precio">Precio de Alquiler: $10,000/mes</p>
+            <a href="RegistroCompra.html"><button id="button-compra">Adquirir</button></a>
+        </div>
+        
+        <div class="card">
+            <button id="cambiarColorButton" class="button-opcion">Ver más</button>
+            <div class="container">
+                <img src="Imagenes/Edificio Residencial.jpg" class="image" alt="Vista del edificio">
+                <div class="middle" id="product">
+                    <div class="text">Elegante edificio residencial con amplios apartamentos y comodidades de lujo. Vistas panorámicas y seguridad las 24 horas.</div>
+                    <button class="add-to-cart" data-name="Edificio Residencial" data-price="5000000" data-image="Imagenes/Edificio Residencial.jpg" id="button-carrito">Agregar al Carrito</button>
+                </div>
+            </div>
+            <h2>Edificio Residencial</h2>
+            <p>Elegante edificio residencial con amplios apartamentos y comodidades de lujo. Vistas panorámicas y seguridad las 24 horas.</p>
+            <p class="precio">Precio de Venta: $5,000,000</p>
+            <a href="RegistroCompra.html"><button id="button-compra">Adquirir</button></a>
+        </div>
+        
+        <div class="card">
+            <button id="cambiarColorButton" class="button-opcion">Más información</button>
+            <div class="container">
+                <img src="Imagenes/Edificio Comercial.jpg" class="image" alt="Vista del edificio">
+                <div class="middle" id="product">
+                    <div class="text">Edificio comercial en una zona de alto tráfico. Espacio flexible para tiendas, restaurantes y oficinas. Oportunidad de inversión.</div>
+                    <button class="add-to-cart" data-name="Edificio Comercial" data-price="2500000" data-image="Imagenes/Edificio Comercial.jpg" id="button-carrito">Agregar al Carrito</button>
+                </div>
+            </div>
+            <h2>Edificio Comercial</h2>
+            <p>Edificio comercial en una zona de alto tráfico. Espacio flexible para tiendas, restaurantes y oficinas. Oportunidad de inversión.</p>
+            <p class="precio">Precio de Venta: $2,500,000</p>
+            <a href="RegistroCompra.html"><button id="button-compra">Adquirir</button></a>
+        </div>
+        
+        <div class="card">
+            <button id="cambiarColorButton" class="button-opcion">Explorar</button>
+            <div class="container">
+                <img src="Imagenes/Edificio Histórico.jpg" class="image" alt="Vista del edificio">
+                <div class="middle" id="product">
+                    <div class="text">Edificio histórico restaurado con arquitectura impresionante. Ideal para eventos especiales y experiencias culturales.</div>
+                    <button class="add-to-cart" data-name="Edificio Histórico" data-price="1000" data-image="Imagenes/Edificio Histórico.jpg" id="button-carrito">Agregar al Carrito</button>
+                </div>
+            </div>
+            <h2>Edificio Histórico</h2>
+            <p>Edificio histórico restaurado con arquitectura impresionante. Ideal para eventos especiales y experiencias culturales.</p>
+            <p class="precio">Precio de Alquiler para Eventos: $1,000/día</p>
+            <a href="RegistroCompra.html"><button id="button-compra">Adquirir</button></a>
+        </div>
+        
+    </section>
+    <script src="/js/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#cambiarColorButton").click(function () {
+                $("body").toggleClass("dark-mode"); 
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#menuBtn").click(function () {
+                $("#menu").toggle(); 
+            });
+            $("#menu a").click(function () {
+                var opcion = $(this).text();
+                if (opcion === "Sugerencias") {
+                } else if (opcion === "Volver") {
+                } else if (opcion === "Cambiar Modo") {
+                }
+            $("#menu").hide(); 
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+    
+            const cartItems = [];
+    
+            $(".add-to-cart").on("click", function () {
+                const productName = $(this).data("name");
+                const price = parseFloat($(this).data("price"));
+                const image = $(this).data("image");
+    
+                addToCart(productName, price, image);
+            });
+    
+            function addToCart(productName, price, image) {
+                cartItems.push({ name: productName, price: price, image: image });
+                updateCartDisplay();
+            }
+    
+            function updateCartDisplay() {
+                const cartItemsList = $("#cart-items");
+                cartItemsList.empty();
+    
+                cartItems.forEach((item, index) => {
+                    const listItem = $("<li>").text(`${item.name} - $${item.price.toFixed(2)}`);
+                    const imageElement = $(`<img src="${item.image}" alt="${item.name}" width="50" height="50">`);
+                    const removeButton = $("<button class='remove-from-cart'>Eliminar</button>")
+                    .css({
+                    fontSize: '16px',
+                    padding: '5px 10px',
+                    });
+                    removeButton.on("click", function () {
+                        removeFromCart(index);
+                    });
+                    listItem.append(imageElement);
+                    listItem.append(removeButton);
+                    cartItemsList.append(listItem);
+                });
+            }
+            function removeFromCart(index) {
+                cartItems.splice(index, 1);
+                updateCartDisplay();
+            }
+            $(document).ready(function () {
+                $("#toggle-cart").on("click", function () {
+                    $("#cart-content").toggle();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
