@@ -2,44 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Registro Compra</title>
+    <title>Registro de Propiedades</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Registro.css">
 </head>
 <body>
-    <header>
-        <!-- place navbar here -->
-    </header>
     <main>
         <div class="container mt-5">
-            <h2 class="text-center mb-4">Registro de Productos e Items</h2>
-            <form id="productForm" onsubmit="return validateForm()">
+            <h2 class="text-center mb-4">Registro de Propiedades</h2>
+            <form id="propertyForm" onsubmit="return validateForm()">
                 <div class="mb-3">
-                    <label for="productName" class="form-label">Nombre del Producto</label>
-                    <input type="text" class="form-control" id="productName" required>
+                    <label for="propertyName" class="form-label">Nombre de la Propiedad</label>
+                    <input type="text" class="form-control" id="propertyName" required>
                 </div>
                 <div class="mb-3">
-                    <label for="productPrice" class="form-label">Precio del Producto</label>
-                    <input type="number" class="form-control" id="productPrice" min="0" required>
+                    <label for="propertyPrice" class="form-label">Precio de la Propiedad</label>
+                    <input type="number" class="form-control" id="propertyPrice" min="0" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Registrar</button>
+                <button type="submit" class="btn btn-primary">Registrar Propiedad</button>
             </form>
-            <h2 class="text-center mt-5">Lista de Contenido Registrado</h2>
+            <h2 class="text-center mt-5">Lista de Propiedades Registradas</h2>
             <table class="table mt-3">
                 <thead>
                     <tr>
-                        <th scope="col">Nombre del Producto</th>
+                        <th scope="col">Nombre de la Propiedad</th>
                         <th scope="col">Precio</th>
                     </tr>
                 </thead>
-                <tbody id="contentList">
+                <tbody id="propertyList">
                 </tbody>
             </table>
         </div>
     </main>
-    <footer>
-        <!-- place footer here -->
-    </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
             integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
@@ -47,26 +42,30 @@
     </script>
     <script>
         function validateForm() {
-            const productName = document.getElementById("productName").value;
-            const productPrice = document.getElementById("productPrice").value;
-
-            if (!productName || !productPrice) {
+            const propertyName = document.getElementById("propertyName").value;
+            const propertyPrice = document.getElementById("propertyPrice").value;
+    
+            if (!propertyName || !propertyPrice) {
                 alert("Por favor, complete todos los campos.");
                 return false;
             }
-            if (isNaN(productPrice)) {
+    
+            // Validación para asegurarse de que propertyPrice sea un número
+            if (isNaN(propertyPrice)) {
                 alert("Ingrese un valor numérico válido para el precio.");
                 return false;
             }
-            addToTable(productName, productPrice);
-            document.getElementById("productName").value = "";
-            document.getElementById("productPrice").value = "";
-            alert("Registro exitoso.");
+    
+            addToTable(propertyName, propertyPrice);
+            document.getElementById("propertyName").value = "";
+            document.getElementById("propertyPrice").value = "";
+            alert("Registro de propiedad exitoso.");
             return false;
         }
-
+    
+        // Función para agregar a la tabla
         function addToTable(name, price) {
-            const tableBody = document.getElementById("contentList");
+            const tableBody = document.getElementById("propertyList");
             const row = document.createElement("tr");
             row.innerHTML = `
                 <td>${name}</td>
@@ -74,6 +73,14 @@
             `;
             tableBody.appendChild(row);
         }
+    
+        // Agregar event listener para validar el campo de precio
+        document.getElementById("propertyPrice").addEventListener("input", function() {
+            const input = this.value;
+            
+            // Eliminar caracteres no numéricos
+            this.value = input.replace(/[^0-9]/g, "");
+        });
     </script>
 </body>
 </html>
