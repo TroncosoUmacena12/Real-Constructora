@@ -77,51 +77,66 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
     <script>
-    let loginAttempts = 0;
-    function validateForm() {
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-        const email = document.getElementById("email").value;
-        if (username.length > 12 || password.length < 8 || password.length > 10 || !validateEmail(email)) {
-            alert("Por favor, revise los campos ingresados.");
-            return false;
+        let loginAttempts = 0;
+    
+        function validateForm() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const email = document.getElementById("email").value;
+    
+            // Validación de que el correo contenga el símbolo "@"
+            if (!email.includes("@")) {
+                alert("Ingrese un correo válido que contenga '@'.");
+                return false;
+            }
+    
+            if (username.length > 12 || password.length < 8 || password.length > 10 || !validateEmail(email)) {
+                alert("Por favor, revise los campos ingresados.");
+                return false;
+            }
+    
+            loginAttempts++;
+    
+            if (loginAttempts >= 3) {
+                alert("Número máximo de intentos alcanzado. Saliendo.");
+                logout();
+                return false;
+            }
+    
+            if (username && password && email) {
+                // Solo redirige si todos los campos están completos.
+                window.location.href = "index.html";
+                return false;
+            } else {
+                alert("Por favor, rellene todos los campos del formulario.");
+                return false;
+            }
         }
-        loginAttempts++;
-        if (loginAttempts >= 3) {
-            alert("Número máximo de intentos alcanzado. Saliendo.");
-            logout();
-            return false; 
+    
+        function validateEmail(email) {
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0.9.-]+\.[a-zA-Z]{2,4}$/;
+            return emailPattern.test(email);
         }
-        if (username && password && email) {
-            // Solo redirige si todos los campos están completos.
-            window.location.href = "index.html";
-            return false; 
-        } else {
-            alert("Por favor, rellene todos los campos del formulario.");
-            return false; 
+    
+        function logout() {
+            alert("Sesión cerrada.");
         }
-    }
-    function validateEmail(email) {
-        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0.9.-]+\.[a-zA-Z]{2,4}$/;
-        return emailPattern.test(email);
-    }
-    function logout() {
-        alert("Sesión cerrada.");
-    }
-    function registerUser() {
-        const registerUsername = document.getElementById("registerUsername").value;
-        const registerPassword = document.getElementById("registerPassword").value;
-        if (registerUsername && registerPassword) {
-            console.log(`Usuario registrado: ${registerUsername}`);
-            document.getElementById("registerUsername").value = "";
-            document.getElementById("registerPassword").value = "";
-            $('#registerModal').modal('hide');
-            return false;
-        } else {
-            alert("Por favor, rellene todos los campos del formulario de registro.");
-            return false;
+    
+        function registerUser() {
+            const registerUsername = document.getElementById("registerUsername").value;
+            const registerPassword = document.getElementById("registerPassword").value;
+    
+            if (registerUsername && registerPassword) {
+                console.log(`Usuario registrado: ${registerUsername}`);
+                document.getElementById("registerUsername").value = "";
+                document.getElementById("registerPassword").value = "";
+                $('#registerModal').modal('hide');
+                return false;
+            } else {
+                alert("Por favor, rellene todos los campos del formulario de registro.");
+                return false;
+            }
         }
-    }
     </script>
 </body>
 </html>
